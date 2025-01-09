@@ -1,0 +1,17 @@
+aws s3api create-bucket --bucket cafestaticaws --region us-east-1  
+
+
+aws s3api put-bucket-ownership-controls --bucket cafestaticaws --ownership-controls "Rules=[{ObjectOwnership=BucketOwnerPreferred}]"  
+
+
+aws s3api put-public-access-block --bucket cafestatic --public-access-block-configuration "BlockPublicAcls=false,IgnorePublicAcls=false,BlockPublicPolicy=false,RestrictPublicBuckets=false" 
+
+
+
+aws s3 website s3://cafestatic --index-document index.html  
+
+
+aws s3 cp . s3://cafestatic --recursive --acl public-read  
+
+
+aws s3 ls cafestatic
