@@ -15,3 +15,9 @@ aws s3 cp . s3://cafestatic --recursive --acl public-read
 
 
 aws s3 ls cafestatic
+
+vi update-website.sh
+
+#!/bin/bash
+aws s3 cp ~/sysops-activity-files/ s3://cafestatic --recursive --acl public-read 
+
